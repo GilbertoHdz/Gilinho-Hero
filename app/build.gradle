@@ -16,9 +16,15 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            minifyEnabled false
+            buildConfigField("String", "BASE_URL", "http://gateway.marvel.com/v1/")
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", "http://gateway.marvel.com/v1/")
         }
     }
 }
@@ -33,6 +39,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    implementation project(":api")
 
     //DAGGER2
     implementation libraries.dagger2
@@ -40,4 +47,10 @@ dependencies {
     implementation libraries.dagger2Android
     implementation libraries.dagger2AndroidSupport
     kapt libraries.dagger2AndroidProcessor
+
+    // RETROFIT & NETWORK
+    implementation libraries.retrofit2
+    implementation libraries.retrofit2GsonConverter
+    implementation libraries.okhttpLoggingInterceptor
+
 }
