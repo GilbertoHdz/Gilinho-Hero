@@ -7,7 +7,8 @@ import mx.com.ghg.api.ApiModule
 @Module(
   includes = [
     NetModule::class,
-    ApiModule::class
+    ApiModule::class,
+    ViewModelModule::class
   ]
 )
 class AppModule(private val application: Application) {

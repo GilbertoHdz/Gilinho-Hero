@@ -10,7 +10,7 @@ interface CharacterService {
    * @Get List of heroes
    * @ts timestamp
    * @hash combinations of (ts + privateKey + publicKey) to MD5 encrypt
-   * @apikey your proyect api key
+   * @apikey your project api key
    */
   @GET("public/characters")
   suspend fun getCharacters(
