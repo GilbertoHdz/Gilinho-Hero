@@ -1,10 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primaryDark</item>
         <item name="colorAccent">@color/accent</item>
+
+        <item name="android:textColorPrimary">@color/primaryText</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+
+        <item name="android:textAppearance">@style/Font.Regular</item>
+        <item name="android:textSize">@dimen/font_normal</item>
     </style>
+
+    <style name="AppTheme" parent="BaseAppTheme"/>
+
+    <!-- FONT STYLES -->
+    <style name="Font.Bold" parent="android:TextAppearance">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Font.Medium" parent="android:TextAppearance">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Font.Light" parent="android:TextAppearance">
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="Font.Regular" parent="android:TextAppearance">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+    <!-- END FONT STYLES -->
+
+    <!-- Widget: LAYOUT -->
+    <style name="larger_bold_layout" parent="@style/Font.Bold">
+        <item name="android:textSize">@dimen/font_larger</item>
+    </style>
+
+    <style name="normal_medium_layout" parent="@style/Font.Medium">
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <style name="normal_regular_layout" parent="@style/Font.Regular">
+        <item name="android:textSize">@dimen/font_normal</item>
+    </style>
+
+    <style name="small_light_layout" parent="@style/Font.Light">
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+    <!-- END Widget: LAYOUT -->
+
 </resources>
