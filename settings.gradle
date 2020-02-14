@@ -1,6 +1,8 @@
-include ':app', ':heroes', ':hero-detail',
+include ':app',
         ':api',
-        ':androidutils',
+        ':android-utils',
+        ':heroes',
+        ':hero-detail',
         ':interactors',
         ':models'
 
