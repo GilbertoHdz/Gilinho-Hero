@@ -1,5 +1,9 @@
 rootProject.ext {
 
+    androidCompileSdkVersion = 28
+    androidMinSdkVersion = 21
+    androidTargetSdkVersion = 28
+
     lifecycle_version = "2.1.0"
 
     // ORDERED ALPHABETICALLY.
