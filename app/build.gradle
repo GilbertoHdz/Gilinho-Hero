@@ -18,13 +18,13 @@ android {
     buildTypes {
         debug {
             minifyEnabled false
-            buildConfigField("String", "BASE_URL", "http://gateway.marvel.com/v1/")
+            buildConfigField "String", "BASE_URL", '"http://gateway.marvel.com/v1/"'
         }
 
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "BASE_URL", "http://gateway.marvel.com/v1/")
+            buildConfigField "String", "BASE_URL", '"http://gateway.marvel.com/v1/"'
         }
     }
 }
@@ -40,6 +40,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation project(":api")
+    implementation project(":android-utils")
 
     //DAGGER2
     implementation libraries.dagger2

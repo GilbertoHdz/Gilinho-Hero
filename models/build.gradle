@@ -3,5 +3,7 @@ apply from: '../config-library.gradle'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation libraries.kotlin
 }
 
