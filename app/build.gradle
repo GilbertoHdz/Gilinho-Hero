@@ -42,6 +42,9 @@ dependencies {
     implementation project(":api")
     implementation project(":android-utils")
 
+    // Features
+    implementation project(":heroes")
+
     //DAGGER2
     implementation libraries.dagger2
     kapt libraries.dagger2Compiler
