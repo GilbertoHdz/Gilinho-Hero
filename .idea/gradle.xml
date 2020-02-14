@@ -11,6 +11,8 @@
             <option value="$PROJECT_DIR$/androidutils" />
             <option value="$PROJECT_DIR$/api" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/hero-detail" />
+            <option value="$PROJECT_DIR$/heroes" />
             <option value="$PROJECT_DIR$/interactors" />
             <option value="$PROJECT_DIR$/models" />
           </set>
