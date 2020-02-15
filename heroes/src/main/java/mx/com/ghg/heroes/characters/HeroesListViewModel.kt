@@ -1,10 +1,11 @@
-package mx.com.ghg.heroes.list
+package mx.com.ghg.heroes.characters
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import mx.com.ghg.heroes.list.HeroesListUiModel.*
+import mx.com.ghg.heroes.characters.HeroesListUiModel.*
 import mx.com.ghg.interactors.character.GetCharactersInteractor
 import mx.com.ghg.interactors.character.GetCharactersInteractor.Result as GetCharacterResult
 import javax.inject.Inject
@@ -13,14 +14,18 @@ class HeroesListViewModel @Inject constructor(
   private val getCharactersInteractor: GetCharactersInteractor
 ) : ViewModel() {
 
+  val heroesResult: MutableLiveData<HeroesResult?> = MutableLiveData()
+
   fun getListHeroes() {
     CoroutineScope(viewModelScope.coroutineContext).launch {
       val result = getCharactersInteractor.characters()
-      transformCharactersResult(result)
+      heroesResult.postValue(transformCharactersResult(result))
     }
   }
 
-  private fun transformCharactersResult(result: GetCharacterResult): HeroesResult {
+  private fun transformCharactersResult(
+    result: GetCharacterResult
+  ): HeroesResult {
     return when (result) {
       is GetCharacterResult.Success -> {
         val map = result.characters.map {
@@ -41,5 +46,10 @@ class HeroesListViewModel @Inject constructor(
         HeroesResult.Error("")
       }
     }
+  }
+
+  fun retryGetHeroes() {
+    heroesResult.postValue(HeroesResult.IsLoading)
+    getListHeroes()
   }
 }

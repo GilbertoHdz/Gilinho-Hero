@@ -1,4 +1,4 @@
-package mx.com.ghg.heroes.list
+package mx.com.ghg.heroes.characters
 
 import android.content.Context
 import androidx.lifecycle.ViewModelProviders
@@ -9,8 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import dagger.android.support.AndroidSupportInjection
-import kotlinx.android.synthetic.main.heroes_list_fragment.labelcheck
-import mx.com.ghg.heroes.R
+import mx.com.ghg.heroes.characters.view.CharactersAdapter
+import mx.com.ghg.heroes.databinding.HeroesListCharactersFragmentBinding
 import javax.inject.Inject
 
 class HeroesListFragment : Fragment() {
@@ -18,6 +18,7 @@ class HeroesListFragment : Fragment() {
   @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
 
   private lateinit var viewModel: HeroesListViewModel
+  private lateinit var binding: HeroesListCharactersFragmentBinding
 
   companion object {
     fun newInstance() = HeroesListFragment()
@@ -38,19 +39,24 @@ class HeroesListFragment : Fragment() {
     container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View? {
-    return inflater.inflate(R.layout.heroes_list_fragment, container, false)
+    binding = HeroesListCharactersFragmentBinding.inflate(inflater, container, false)
+    binding.viewModel = viewModel
+    binding.lifecycleOwner = viewLifecycleOwner
+    return binding.root
   }
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-
-    labelcheck.setOnClickListener {
-      viewModel.getListHeroes()
-    }
+    // viewModel.getListHeroes()
   }
 
   override fun onActivityCreated(savedInstanceState: Bundle?) {
     super.onActivityCreated(savedInstanceState)
+    configureRecyclerView()
+  }
+
+  private fun configureRecyclerView() {
+    binding.heroesListCharactersRecycler.adapter = CharactersAdapter(viewModel)
   }
 
   private fun provideViewModel(): HeroesListViewModel {

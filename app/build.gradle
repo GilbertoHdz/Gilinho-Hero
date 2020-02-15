@@ -27,6 +27,9 @@ android {
             buildConfigField "String", "BASE_URL", '"http://gateway.marvel.com/v1/"'
         }
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {

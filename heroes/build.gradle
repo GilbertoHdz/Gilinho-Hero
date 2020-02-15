@@ -27,4 +27,7 @@ dependencies {
     // Kotlin
     implementation libraries.kotlin
     implementation libraries.kotlinCoroutines
+
+    // Ktx
+    implementation libraries.androidKtx
 }

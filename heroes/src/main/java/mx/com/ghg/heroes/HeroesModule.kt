@@ -6,8 +6,8 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
 import mx.com.ghg.androidutils.di.ViewModelKey
-import mx.com.ghg.heroes.list.HeroesListFragment
-import mx.com.ghg.heroes.list.HeroesListViewModel
+import mx.com.ghg.heroes.characters.HeroesListFragment
+import mx.com.ghg.heroes.characters.HeroesListViewModel
 
 @Module
 abstract class HeroesModule {

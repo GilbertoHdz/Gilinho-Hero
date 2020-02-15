@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Heroes</string>
+    <string name="heroes_list_characters_name">Name:</string>
+    <string name="heroes_list_characters_description">Description:</string>
 </resources>

@@ -2,7 +2,7 @@ package mx.com.ghg.gilinhohero
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import mx.com.ghg.heroes.list.HeroesListFragment
+import mx.com.ghg.heroes.characters.HeroesListFragment
 
 class MainActivity : AppCompatActivity() {
 

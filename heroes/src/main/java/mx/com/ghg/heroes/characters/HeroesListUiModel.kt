@@ -1,4 +1,4 @@
-package mx.com.ghg.heroes.list
+package mx.com.ghg.heroes.characters
 
 class HeroesListUiModel {
 
@@ -10,6 +10,7 @@ class HeroesListUiModel {
   )
 
   sealed class HeroesResult {
+    object IsLoading : HeroesResult()
     data class Success(val heroes: List<HeroDetail>) : HeroesResult()
     data class Failed(val message: String) : HeroesResult()
     data class Error(val message: String) : HeroesResult()
