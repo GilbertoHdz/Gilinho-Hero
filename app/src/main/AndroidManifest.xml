@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mx.com.ghg.gilinhohero">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".HeroApp"
         android:allowBackup="true"

@@ -1,0 +1,5 @@
+apply from: '../config-library.gradle'
+
+dependencies {
+    implementation libraries.kotlin
+}

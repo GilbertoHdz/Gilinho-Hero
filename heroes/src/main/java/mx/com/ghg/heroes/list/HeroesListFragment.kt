@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.android.synthetic.main.heroes_list_fragment.labelcheck
 import mx.com.ghg.heroes.R
 import javax.inject.Inject
 
@@ -38,6 +39,14 @@ class HeroesListFragment : Fragment() {
     savedInstanceState: Bundle?
   ): View? {
     return inflater.inflate(R.layout.heroes_list_fragment, container, false)
+  }
+
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+
+    labelcheck.setOnClickListener {
+      viewModel.getListHeroes()
+    }
   }
 
   override fun onActivityCreated(savedInstanceState: Bundle?) {

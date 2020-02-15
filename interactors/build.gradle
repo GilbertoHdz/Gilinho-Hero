@@ -1,6 +1,18 @@
 
-apply from: '../config-library.gradle'
+apply from: '../dependencies.gradle'
+apply from: '../config-android.gradle'
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(":models")
+    implementation project(":api")
+    implementation project(":utils")
+
+    implementation libraries.dagger2
+    kapt libraries.dagger2Compiler
+    implementation libraries.retrofit2
+
+    // Kotlin
+    implementation libraries.kotlin
+    implementation libraries.kotlinCoroutines
 }

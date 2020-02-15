@@ -4,6 +4,7 @@ include ':app',
         ':heroes',
         ':hero-detail',
         ':interactors',
-        ':models'
+        ':models',
+        ':utils'
 
 rootProject.name='Gilinho Hero'
