@@ -1,12 +1,31 @@
-
 apply from: '../config-android.gradle'
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation project(":models")
+    implementation project(":interactors")
+    implementation project(":android-utils")
+
+    // Android Support
+    implementation libraries.support
+    implementation libraries.supportDesign
+    implementation libraries.supportAppCompat
+    implementation libraries.supportConstraintLayout
+
+    // JetPack
+    implementation libraries.lifecycleExt
+    implementation libraries.lifecycleViewModelKtx
+
+    //DAGGER2
+    implementation libraries.dagger2
+    kapt libraries.dagger2Compiler
+    implementation libraries.dagger2Android
+    implementation libraries.dagger2AndroidSupport
+    kapt libraries.dagger2AndroidProcessor
+
+    // Kotlin
+    implementation libraries.kotlin
+    implementation libraries.kotlinCoroutines
+
+    // Ktx
+    implementation libraries.androidKtx
 }

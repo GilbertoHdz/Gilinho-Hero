@@ -48,6 +48,7 @@ dependencies {
 
     // Features
     implementation project(":heroes")
+    implementation project(":hero-detail")
 
     //DAGGER2
     implementation libraries.dagger2
