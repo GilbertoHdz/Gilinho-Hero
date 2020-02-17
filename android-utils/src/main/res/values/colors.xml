@@ -8,4 +8,7 @@
     <color name="textColorSecondary">#757575</color>
     <color name="icons">#212121</color>
     <color name="divider">#BDBDBD</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="inverseTrans">#24FFFFFF</color>
 </resources>
