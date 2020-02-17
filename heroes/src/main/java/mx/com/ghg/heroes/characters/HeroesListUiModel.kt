@@ -13,6 +13,6 @@ class HeroesListUiModel {
     object IsLoading : HeroesResult()
     data class Success(val heroes: List<HeroDetail>) : HeroesResult()
     data class Failed(val message: String) : HeroesResult()
-    data class Error(val message: String) : HeroesResult()
+    data class Error(val error: Exception) : HeroesResult()
   }
 }

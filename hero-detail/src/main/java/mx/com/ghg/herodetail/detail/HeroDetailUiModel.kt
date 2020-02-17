@@ -14,7 +14,7 @@ class HeroDetailUiModel {
     object IsLoading : HeroesResult()
     object Success : HeroesResult()
     data class Failed(val message: String) : HeroesResult()
-    data class Error(val message: String) : HeroesResult()
+    data class Error(val error: Exception) : HeroesResult()
   }
 
   data class Comic(

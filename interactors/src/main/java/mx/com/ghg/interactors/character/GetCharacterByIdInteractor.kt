@@ -1,12 +1,14 @@
 package mx.com.ghg.interactors.character
 
 import mx.com.ghg.api.CharacterService
+import mx.com.ghg.interactors.utils.ErrorUtils
 import mx.com.ghg.models.Result as Characters
 import mx.com.ghg.utils.Utils
 import javax.inject.Inject
 
 class GetCharacterByIdInteractor @Inject constructor(
-  private val characterService: CharacterService
+  private val characterService: CharacterService,
+  private val errorUtils: ErrorUtils
 ) {
 
   suspend fun characterById(param: Param): Result {
@@ -22,7 +24,15 @@ class GetCharacterByIdInteractor @Inject constructor(
 
       Result.Success(result.data.results)
     } catch (e: Exception) {
-      Result.Error(e)
+      e.printStackTrace()
+      when(val error = errorUtils.error(e)) {
+        is ErrorUtils.ErrorType.Failed -> {
+          Result.Failed(error.message)
+        }
+        is ErrorUtils.ErrorType.Error -> {
+          Result.Error(error.error)
+        }
+      }
     }
   }
 

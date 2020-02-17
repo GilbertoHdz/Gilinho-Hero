@@ -47,10 +47,10 @@ class HeroDetailViewModel @Inject constructor(
         HeroesResult.Success
       }
       is GetByIdResult.Failed -> {
-        HeroesResult.Failed("")
+        HeroesResult.Failed(result.message)
       }
       is GetByIdResult.Error -> {
-        HeroesResult.Error("")
+        HeroesResult.Error(result.e)
       }
     }
   }

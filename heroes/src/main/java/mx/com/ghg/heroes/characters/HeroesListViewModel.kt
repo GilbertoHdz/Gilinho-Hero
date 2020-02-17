@@ -42,10 +42,10 @@ class HeroesListViewModel @Inject constructor(
         HeroesResult.Success(heroes = map)
       }
       is GetCharacterResult.Failed -> {
-        HeroesResult.Failed("")
+        HeroesResult.Failed(result.message)
       }
       is GetCharacterResult.Error -> {
-        HeroesResult.Error("")
+        HeroesResult.Error(result.e)
       }
     }
   }

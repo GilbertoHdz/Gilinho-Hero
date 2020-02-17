@@ -1,12 +1,15 @@
 package mx.com.ghg.interactors.character
 
 import mx.com.ghg.api.CharacterService
+import mx.com.ghg.interactors.utils.ErrorUtils
+import mx.com.ghg.interactors.utils.ErrorUtils.*
 import mx.com.ghg.models.Result as Characters
 import mx.com.ghg.utils.Utils
 import javax.inject.Inject
 
 open class GetCharactersInteractor @Inject constructor(
-  private val characterService: CharacterService
+  private val characterService: CharacterService,
+  private val errorUtils: ErrorUtils
 ) {
 
   suspend fun characters(): Result {
@@ -22,7 +25,14 @@ open class GetCharactersInteractor @Inject constructor(
       Result.Success(result.data.results)
     } catch (e: Exception) {
       e.printStackTrace()
-      Result.Error(e)
+      when(val error = errorUtils.error(e)) {
+        is ErrorType.Failed -> {
+          Result.Failed(error.message)
+        }
+        is ErrorType.Error -> {
+          Result.Error(error.error)
+        }
+      }
     }
   }
 
