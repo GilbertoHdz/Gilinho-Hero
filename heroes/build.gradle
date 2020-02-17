@@ -6,6 +6,7 @@ dependencies {
     implementation project(":interactors")
     implementation project(":android-utils")
 
+    implementation project(":hero-detail")
 
     // Android Support
     implementation libraries.support

@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import mx.com.ghg.androidutils.SingleLiveEvent
 import mx.com.ghg.heroes.characters.HeroesListUiModel.*
 import mx.com.ghg.interactors.character.GetCharactersInteractor
 import mx.com.ghg.interactors.character.GetCharactersInteractor.Result as GetCharacterResult
@@ -15,6 +16,7 @@ class HeroesListViewModel @Inject constructor(
 ) : ViewModel() {
 
   val heroesResult: MutableLiveData<HeroesResult?> = MutableLiveData()
+  val heroItemAction: SingleLiveEvent<HeroDetail?> = SingleLiveEvent()
 
   fun getListHeroes() {
     CoroutineScope(viewModelScope.coroutineContext).launch {
@@ -51,5 +53,9 @@ class HeroesListViewModel @Inject constructor(
   fun retryGetHeroes() {
     heroesResult.postValue(HeroesResult.IsLoading)
     getListHeroes()
+  }
+
+  fun heroItemClicked(hero: HeroDetail) {
+    heroItemAction.postValue(hero)
   }
 }
