@@ -53,7 +53,7 @@ class HeroesListFragment : Fragment() {
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-    // viewModel.getListHeroes()
+    viewModel.getListHeroes()
   }
 
   override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -67,6 +67,7 @@ class HeroesListFragment : Fragment() {
     }
   }
 
+  // TODO(impl a new NavigationController or Deeplink) for better handing with new features with dinamic modules.
   private fun openHeroDescriptionScreen(hero: HeroDetail) {
     requireActivity().supportFragmentManager
       .beginTransaction()
